@@ -1,4 +1,8 @@
 # .bashrc file
+# 
+# We'll give Balaji's bashrc a chance, but expect to change it or lose it
+# altogether. (He doesn't play nice with vim and I don't DO emacs.)
+# 
 # By Balaji S. Srinivasan (balajis@stanford.edu)
 #
 # Concepts:
