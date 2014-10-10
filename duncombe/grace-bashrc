@@ -1,0 +1,219 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# for readline control see ~/.inputrc
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+HISTCONTROL=ignoredups:ignorespace
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=2000
+HISTFILESIZE=20000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# This arsing with ls is bullshit! Get rid of it! The only one I want is lsd
+#
+# enable color support of ls and also add handy aliases
+# if [ -x /usr/bin/dircolors ]; then
+#     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+#     alias ls='ls --color=auto'
+#     #alias dir='dir --color=auto'
+#     #alias vdir='vdir --color=auto'
+# 
+#     alias grep='grep --color=auto'
+#     alias fgrep='fgrep --color=auto'
+#     alias egrep='egrep --color=auto'
+# fi
+
+# some more ls aliases
+# alias ll='ls -alF'
+# alias la='ls -A'
+# alias l='ls -CF'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+#
+#  No I don't
+#
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+	# and for some ridiculous reason, make is carefully
+	# omitted from the list of programs that benefits from
+	# completion. Why? WTFK?!
+	# Anyway, this should work...
+	complete -F _longopt -o filenames make
+	# while here, lets help newac be sensible
+	complete -o filenames -o dirnames -f -X '!*.@(pdf|PDF)' newac 
+	# complete -o filenames -o dirnames -f -X '!*.@(m|sh|txt|tex|html)' vi 
+	# note that this is normal extglob pattern matching (man bash)
+	# note the whole is negated because -X exclude-filters, so we are 
+	# excluding everything except files starting with ., files with .m,
+	# .sh, etc., extensions, and files without any . in them
+	complete -o filenames -o dirnames -f -X '!@(.*|*.@(m|sh|txt|tex|html|awk|sed|bat)|!(*.*))' vi vim
+fi
+
+# These are my aliases and path setups
+#
+export AWKPATH=$AWKPATH:~/PROGS
+export RSYNC_RSH=ssh
+
+alias vu="view"
+alias ac="acroread"
+alias newac="acroread -openInNewWindow"
+alias pd="dirs -v | tac"
+alias ad='cd $(/bin/pwd)'
+alias lsd='ls -ld .* * | grep ^d'
+# alias readrefn='readref -reader="acroread -openInNewWindow"'
+alias rehash="hash -r"
+
+PATH=$PATH:/usr/X11R6/bin:~/PROGS:/sbin:/usr/sbin:~/WORK/bin
+
+export LESS="-j3 -a -M -Q -i"
+
+alias lesslog="less +/error\|warning "
+#
+# Note that if ~/.bash_profile exists, then ~/.profile in NOT run!
+# export TZ="SAST-2"
+# echo Running $0
+export TZ="HST+10"
+export TZ="SAST-2"
+export TZ="EST5EDT"
+
+if ( ifconfig | grep -A1 "eth[0-9]" | tail -n1 | grep "128\.128\." > /dev/null ) ; then 
+	# At WHOI use this
+	export PRINTER="color-206a"
+elif ( ifconfig | grep -A1 "\(wlan\|eth\)[0-9]" | tail -n1 | grep "192\.168\." > /dev/null ); then
+	# At alberti use this
+	export PRINTER="summer"
+else PRINTER=""
+fi
+
+# PRINTER=knorrcl1
+# export PRINTER=RHPrinter
+
+export MOZ_PRINTER_NAME=$PRINTER
+
+unset PROMPT_COMMAND
+# set up prompt to indicate whether we are saving the bash history
+SPPS1="\n\[\033[1;34m\]\u@$(cat /etc/hostname)\[\033[0m\]:\$(/bin/pwd)\n\$(date '+%Y/%m/%d %T') \\$ "
+NPPS1="\n\u@\$(cat /etc/hostname):\$(/bin/pwd)\n\$(date '+%Y/%m/%d %T') \\$ "
+[ $(basename $HISTFILE) = null ] && 
+	export PS1=$SPPS1 ||
+	export PS1=$NPPS1 
+
+alias mymutt='( ps cU $USER | grep -v grep | grep mutt | grep -v bgrun > /dev/null ) && ( read -p "You are already running mutt. Do you want to start mutt read-only? (y/n) " q ; if [ "$q" = "y" ] ; then  cd; mutt -R ; fi ) || ( cd; mutt)'
+
+alias chrome='google-chrome -new-window'
+
+# moved mymatlab alias to a script in PROGS/ 
+# alias mymatlab='xterm -aw -fn 7x14 -rw  -e matlab -nodesktop -nosplash '
+export MATLAB_JAVA=/usr/lib/jvm/java-6-sun/jre/
+
+export MAKEFILES=$HOME/Makefile
+export BSTINPUTS=$HOME/PROGS:/usr/share/texmf-texlive/bibtex/bst/natbib/
+export BIBINPUTS=$HOME/DOCS/REFS
+
+# export CVSROOT=$HOME/cvsrepository
+export CVSROOT=alberti:/home/duncombe/cvsrepository
+
+# is now set in /etc/profile.d/gmt.sh
+# export GMTHOME=/usr/local/gmt
+# PATH=$PATH:$GMTHOME/bin
+
+# note separate bin directories for grace and erica
+myhost=`cat /etc/hostname`
+if [ ! -d $HOME/bin/${myhost} ] ;  then
+	echo Correct path errors in $HOME/bin/${myhost}
+else
+	PATH=$PATH:${HOME}/bin/${myhost}
+fi
+
+###############
+# Set up for Amazon EC2 CLI Tools
+export JAVA_HOME=/usr
+export EC2_HOME=/usr/local/Amazon/ec2-api-tools-1.6.8.0/
+PATH=$PATH:${EC2_HOME}/bin
+export AWS_ACCESS_KEY=`sed -n '/^AWSAccess/s/^[^=]*=//p'  ~/.ssh/rootkey.csv`
+export AWS_SECRET_KEY=`sed -n '/^AWSSecret/s/^[^=]*=//p'  ~/.ssh/rootkey.csv`
+export EC2_URL=https://ec2.us-west-2.amazonaws.com
+
+
+[ -e $HOME/.motd ] && cat $HOME/.motd
+
+echo $HISTFILE $HISTFILESIZE `shopt histappend`
+
+echo 
+/usr/games/fortune -a
+
+# vi: se nowrap tw=0 :
+
