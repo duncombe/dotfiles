@@ -1,0 +1,36 @@
+# Balaji sets up all these WRONG! Reverse the mistakes.
+unset VISUAL
+export EDITOR="vim"
+set +o noclobber
+unalias cp
+unalias mv
+unalias rm
+unalias ll
+unalias la
+unalias l
+unalias dir
+unalias vdir
+unalias m
+unalias ..
+unalias ...
+unalias md
+unalias cl
+unalias du
+unalias treeacl
+unalias em
+unalias eqq
+unset GREP_OPTIONS
+unset GREP_COLOR
+
+# And now for stuff that should have been there.
+HISTCONTROL=ignoredups:ignorespace
+HISTSIZE=2000
+HISTFILESIZE=20000
+
+alias vu="view"
+alias pd="dirs -v | tac"
+alias ad='cd $(/bin/pwd)'
+alias lsd='ls -ld .* * | grep ^d'
+export LESS="-j3 -a -M -Q -i"
+
+
