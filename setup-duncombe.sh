@@ -1,11 +1,10 @@
 #!/bin/bash
 
 
-ln -sb ~/dotfiles/duncombe/bashrc ~/.bashrc 
-ln -sb ~/dotfiles/duncombe/bash_logout .bash_logout
-ln -sb ~/dotfiles/duncombe/bash_profile .bash_profile
-ln -sb ~/dotfiles/duncombe/bashrc_custom .bashrc_custom
-ln -sb ~/dotfiles/duncombe/vimrc .vimrc
+for f in bashrc bash_logout bash_profile bashrc_custom vimrc ; do
+	[ ! -e ~/.${f}\~ ] &&  ln -sb ~/dotfiles/duncombe/${f} ~/.${f}  || echo  ~/.${f}\~ exists.
+done
+
 
 ## not required
 # ln -sb ~/dotfiles/duncombe/fetchmailrc .fetchmailrc
