@@ -33,4 +33,6 @@ alias ad='cd $(/bin/pwd)'
 alias lsd='ls -ld .* * | grep ^d'
 export LESS="-j3 -a -M -Q -i"
 
+source ~/.bash-git-prompt/gitprompt.sh
+
 
