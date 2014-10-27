@@ -7,9 +7,10 @@ INSTALLDIR=`/bin/pwd`
 	echo exit 1
 	}
 
-for f in bashrc bash_logout bash_profile bashrc_custom vimrc ; do
+# make space to include the bash-git-prompt as a submodule and do this all in one loop
+for f in bash-git-prompt duncombe/{bashrc,bash_logout,bash_profile,bashrc_custom,vimrc} ; do
 	[ ! -e ~/.${f}\~ ] &&
-		ln -sb "$INSTALLDIR/duncombe/${f}" ~/.${f}  ||
+		ln -sb "$INSTALLDIR/${f}" ~/.$(basename ${f})  ||
 			echo  ~/.${f}\~ exists.
 done
 
@@ -19,3 +20,5 @@ done
 # ln -sb ~/dotfiles/duncombe/fetchmailrc .fetchmailrc
 # ln -sb ~/dotfiles/duncombe/muttrc .muttrc
 # ln -sb ~/dotfiles/duncombe/procmailrc .procmailrc
+
+# vim: se nowrap tw=0 : 
