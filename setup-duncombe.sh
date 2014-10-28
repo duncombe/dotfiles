@@ -14,9 +14,14 @@ for f in bash-git-prompt duncombe/{bashrc,bash_logout,bash_profile,bashrc_custom
 			echo  ~/.${f}\~ exists.
 done
 
+# for git config, should try this: 
+# ln -sb ~/dotfiles/duncombe/gitconfig_extras .gitconfig_extras
+# if .gitconfig not-exist, copy dotfiles version
+# grep local ~/.gitconfig for "include .gitconfig_extras"
+# if it's not there add the line.
+# 
 
 ## not required
-# ln -sb ~/dotfiles/duncombe/gitconfig .gitconfig
 # ln -sb ~/dotfiles/duncombe/fetchmailrc .fetchmailrc
 # ln -sb ~/dotfiles/duncombe/muttrc .muttrc
 # ln -sb ~/dotfiles/duncombe/procmailrc .procmailrc
