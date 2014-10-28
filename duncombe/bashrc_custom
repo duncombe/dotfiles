@@ -27,6 +27,7 @@ HISTCONTROL=ignoredups:ignorespace
 HISTSIZE=2000
 HISTFILESIZE=20000
 
+alias view="vim -R"
 alias vu="view"
 alias pd="dirs -v | tac"
 alias ad='cd $(/bin/pwd)'
