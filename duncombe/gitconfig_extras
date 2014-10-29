@@ -1,5 +1,5 @@
 [core]
-	editor = vi
+	editor = vim
 	pager = less -R
 [push]
 	default = current
