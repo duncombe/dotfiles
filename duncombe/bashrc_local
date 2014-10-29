@@ -1,0 +1,10 @@
+#! /bin/bash
+# 
+# This .bashrc_local file contains stuff only for local use. If you want to
+# add stuff that may end up being pushed to github if the files are linked
+# to the dotfiles repo, make the changes in ~/.bashrc or ~/.bashrc_custom.
+# If you want your changes to remain local to this machine, make the
+# changes in this file, which will not be pushed up to origin. This script
+# is sourced from ~/.bashrc_custom.
+
+

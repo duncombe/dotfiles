@@ -241,6 +241,3 @@ source ~/.bashrc_custom
 # \n\[\033[1;34m\]\u@comet\[\033[0m\]:$(/bin/pwd)\n$(date '+%Y/%m/%d %T')
 # \$
 
-
-
-

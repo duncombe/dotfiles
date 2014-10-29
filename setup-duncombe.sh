@@ -22,7 +22,11 @@ done
 ## a job for sed or awk
 ##  grep local ~/.gitconfig for "include .gitconfig_extras" 
 ##  if it's not there add the line.
-# 
+# fi
+
+# something special for local only bash commands
+[ ! -e ~/.bashrc_local ] && cp duncombe/bashrc_local ~/.bashrc_local
+
 
 ## not required
 # ln -sb ~/dotfiles/duncombe/fetchmailrc .fetchmailrc
