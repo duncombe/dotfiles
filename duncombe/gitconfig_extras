@@ -1,6 +1,6 @@
 [core]
 	editor = vim
-	pager = less -R
+	pager = less -R -S
 [push]
 	default = current
 [diff]
