@@ -7,11 +7,17 @@ INSTALLDIR=`/bin/pwd`
 	echo exit 1
 	}
 
-# make space to include the bash-git-prompt as a submodule and do this all in one loop
+# make space to include the bash-git-prompt as a submodule and do this all in
+# one loop. Make backups. If a backup already exists, skip the copy.
+# For the bash-git prompt, it is a submodule. How do you fetch out also the
+# submodules when you clone the repo??  If the bash-git-prompt dir is empty,
+# clone the bash-git-prompt repo. If when you are using the bash-git-prompt,
+# there are weird characters in the prompt, check the terminal encoding (menu
+# Terminal->Set Character Encoding) and change it to UTF-8.
 for f in bash-git-prompt duncombe/{bashrc,bash_logout,bash_profile,bashrc_custom,vimrc} ; do
 	[ ! -e ~/.${f}\~ ] &&
 		ln -sb "$INSTALLDIR/${f}" ~/.$(basename ${f})  ||
-			echo  ~/.${f}\~ exists.
+			echo  Backup file ~/.${f}\~ exists.
 done
 
 # for git config, should try this. It will work! :
@@ -34,3 +40,4 @@ done
 # ln -sb ~/dotfiles/duncombe/procmailrc .procmailrc
 
 # vim: se nowrap tw=0 : 
+
