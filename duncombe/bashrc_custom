@@ -1,4 +1,6 @@
-# Balaji sets up all these WRONG! Reverse the mistakes.
+# This script runs after .bashrc
+# .bashrc now sets up all these WRONG! Reverse the mistakes.
+
 unset VISUAL
 export EDITOR="vim"
 set +o noclobber
@@ -34,7 +36,25 @@ alias ad='cd $(/bin/pwd)'
 alias lsd='ls -ld .* * | grep ^d'
 export LESS="-j3 -a -M -Q -i"
 
+# Configure PATH for interactive shell 
+#  - These are line by line so that you can kill one without affecting the others.
+#  - Lowest priority first, highest priority last.
+export PATH=$PATH
+export PATH=$HOME/anaconda/bin:$PATH
+export PATH=$HOME/bin:$PATH
+export PATH=$HOME/PROGS:$PATH
+export PATH=/usr/bin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+
+# export PATH=/usr/local/heroku/bin:$PATH # Heroku: https://toolbelt.heroku.com/standalone
+
+
+
 source ~/.bash-git-prompt/gitprompt.sh
 
 source ~/.bashrc_local
+
+# vim:se nowrap tw=0 :
+
 

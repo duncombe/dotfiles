@@ -1,5 +1,7 @@
 # .bashrc file
-# 
+#
+echo "Processing .bashrc"
+ 
 # We'll give Balaji's bashrc a chance, but expect to change it or lose it
 # altogether. (He doesn't play nice with vim and I don't DO emacs.)
 # 
