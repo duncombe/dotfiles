@@ -35,6 +35,19 @@ alias pd="dirs -v | tac"
 alias ad='cd $(/bin/pwd)'
 alias lsd='ls -ld .* * | grep ^d'
 export LESS="-j3 -a -M -Q -i"
+alias rehash="hash -r" 
+alias ac='acroread'
+alias chrome='google-chrome -new-window'
+alias l.='ls -d .* --color=auto'
+alias lesslog='less +/error\|warning '
+alias ll='ls -l --color=auto'
+alias ls='ls --color=auto'
+alias mymutt='( ps cU $USER | grep -v grep | grep mutt | grep -v bgrun > /dev/null ) && ( read -p "You are already running mutt. Do you want to start mutt read-only? (y/n) " q ; if [ "$q" = "y" ] ; then  cd; mutt -R ; fi ) || ( cd; mutt)'
+alias newac='acroread -openInNewWindow'
+alias vi='vim'
+alias view='vim -R'
+alias vu='view'
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 
 # Configure PATH for interactive shell 
 #  - These are line by line so that you can kill one without affecting the others.
@@ -46,6 +59,8 @@ export PATH=$HOME/PROGS:$PATH
 export PATH=/usr/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
+
+export AWKPATH=~/PROGS
 
 # export PATH=/usr/local/heroku/bin:$PATH # Heroku: https://toolbelt.heroku.com/standalone
 
