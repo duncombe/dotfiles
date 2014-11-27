@@ -1,5 +1,8 @@
 # This script runs after .bashrc
-# .bashrc now sets up all these WRONG! Reverse the mistakes.
+
+echo "Processing .bashrc_custom"
+
+# .bashrc is setting all these WRONG! Change to reasonable values:
 
 unset VISUAL
 export EDITOR="vim"
