@@ -18,6 +18,7 @@
     unstage = reset HEAD --
     last = log -1 HEAD
     ahead = "!git --no-pager log origin/master..HEAD --oneline"
+    mystat = "!echo ==========; git remote -v ; echo ==========; git branch -a ; echo ==========; git status --porcelain ; echo =========="
 
 # vi:se nowrap tw=0 :
 
