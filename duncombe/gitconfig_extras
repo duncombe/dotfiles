@@ -19,7 +19,17 @@
     last = log -1 HEAD
     ahead = "!git --no-pager log origin/master..HEAD --oneline"
     # mystat = "!echo ==========; git remote -v ; echo ==========; git branch -a ; echo ==========; git status --porcelain ; echo =========="
-    mystat = "!echo ------- ; git remote -v ; echo ------- ; git branch -a ; echo ------- ; git status -uno ; echo -------  "
+    # mystat = "!echo ------- ; git remote -v ; echo ------- ; git branch -a ; echo ------- ; git status -uno ; echo -------  "
+    # Trying to get the alias to accept parameters, so we can do the -u offered.
+    # This is interesting because: we define a function, called _, then
+    # immediately run the function after the definition. Thus any parameters
+    # added to the git alias call, get passed to the function as its
+    # parameters, and they can be dealt with appropriately.
+    mystat = "!_() {\
+		echo ------- ; git remote -v ;\
+		echo ------- ; git branch -a ;\
+		echo ------- ; git status ${1:--uno} ;\
+		echo ------- ; } ; _"
 
 # vi:se nowrap tw=0 :
 
