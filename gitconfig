@@ -1,4 +1,0 @@
-[alias]
-  mystat = "!echo ------- ; git remote -v ; echo ------- ; git branch -a ; echo ------- ; git status -uno ; echo -------  "
-
-
