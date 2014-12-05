@@ -1,0 +1,31 @@
+:se nohls
+"
+:if &diff
+:   syntax off
+:else
+:   syntax on
+:endif 
+"
+:se textwidth=75
+:se wrap
+:se foldmethod=marker
+:map <F7> gqap
+" :map <F6> :r!fdate /A 
+" using - is more correct than / for date separator
+:map <F6> :r!fdate -A 
+" add a mapping for helping in git merges
+:map <F9> /<<<<<\+\\|=====\+\\|>>>>>\+
+"
+" use of modeline is becoming de rigeur, so migrate away from applying it in individual directories
+:se modeline
+
+
+" if the current directory has a .vimrc, source it (unless it is the home directory, when an infinite loop occurs)
+:if getcwd() != expand("~")
+:   if filereadable(".vimrc")
+:       so .vimrc
+:   endif
+:endif
+
+" vim: se nowrap tw=0 :
+

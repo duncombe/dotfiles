@@ -1,0 +1,4 @@
+[user]
+
+[include]
+	path = ~/.gitconfig_extras
