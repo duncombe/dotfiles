@@ -25,11 +25,15 @@
     # immediately run the function after the definition. Thus any parameters
     # added to the git alias call, get passed to the function as its
     # parameters, and they can be dealt with appropriately.
+    # mystat = "!gitstatus "
     mystat = "!_() {\
-		echo ------- ; git remote -v ;\
-		echo ------- ; git branch -a ;\
-		echo ------- ; git status ${1:--uno} ;\
-		echo ------- ; } ; _"
+	git status > /dev/null && { \
+        echo ------- ; git remote -v ;\
+        echo ------- ; git branch -a ;\
+        echo ------- ; git status ${1:--uno} ;\
+        echo ------- ; } ; } ; _"
+ 
+
 
 # vi:se nowrap tw=0 :
 

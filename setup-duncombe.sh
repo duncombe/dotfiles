@@ -21,12 +21,13 @@ for f in bash-git-prompt duncombe/{bashrc,bash_logout,bash_profile,bashrc_custom
 done
 
 # for git config, should try this. It will work! :
-# ln -sb ~/dotfiles/duncombe/gitconfig_extras .gitconfig_extras
+# ln -sb ~/dotfiles/duncombe/gitconfig_extras ~/.gitconfig_extras
 # if [ ! -e .gitconfig ]; then
-# 	cp -i ~/dotfiles/duncombe/gitconfig ~/.gitconfig
+# 	cp -i "${INSTALLDIR}/duncombe/gitconfig" ~/.gitconfig
 # else
 ## a job for sed or awk
-##  grep local ~/.gitconfig for "include .gitconfig_extras" 
+# 	if grep ".gitconfig_extras" ~/.gitconfig 
+# 		 "include .gitconfig_extras" 
 ##  if it's not there add the line.
 # fi
 
