@@ -6,6 +6,7 @@
 :   syntax on
 :endif 
 "
+:se visualbell t_vb=
 :se textwidth=75
 :se wrap
 :se foldmethod=marker
