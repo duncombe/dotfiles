@@ -33,8 +33,6 @@
         echo ------- ; git status ${1:--uno} ;\
         echo ------- ; } ; } ; _"
     mystatus = ! git mystat
- 
-
 
 # vi:se nowrap tw=0 :
 
