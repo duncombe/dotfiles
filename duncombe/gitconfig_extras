@@ -32,6 +32,7 @@
         echo ------- ; git branch -a ;\
         echo ------- ; git status ${1:--uno} ;\
         echo ------- ; } ; } ; _"
+    mystatus = ! git mystat
  
 
 
