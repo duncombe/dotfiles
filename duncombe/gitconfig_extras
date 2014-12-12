@@ -33,6 +33,6 @@
         echo ------- ; git status ${1:--uno} ;\
         echo ------- ; } ; } ; _"
     mystatus = ! git mystat
-
+    acp = "! git add -A -v ; gitcommit; git push"
 # vi:se nowrap tw=0 :
 
