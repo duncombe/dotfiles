@@ -1,0 +1,41 @@
+" A vimrc for using vim as a viewer rather than editor. 
+" Make view behave more like less.
+" Since we are going to call this and only this rcfile from the command line, we
+" include the /etc/vimrc which seems to have some special magic that without
+" breaks the mapping to search for git merge markers.
+
+: if filereadable("/etc/vimrc")
+:   so /etc/vimrc
+: endif
+
+" :set ft=man nomod nolist
+:map q :q
+:map <SPACE> 
+:map b 
+:map -S :se nowrap!
+
+" :se nohls
+
+:   syntax on
+"
+:se visualbell t_vb=
+:se textwidth=75
+:se wrap
+:se foldmethod=marker
+
+" :map <F9> /<<<<<\+\\|=====\+\\|>>>>>\+
+
+"
+" use of modeline is becoming de rigeur, so migrate away from applying it in individual directories
+:se modeline
+
+
+" if the current directory has a .vimrc, source it (unless it is the home directory, when an infinite loop occurs)
+" :if getcwd() != expand("~")
+" :   if filereadable(".vimrc")
+" :       so .vimrc
+" :   endif
+" :endif
+
+" vim: se nowrap tw=0 :
+
