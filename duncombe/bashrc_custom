@@ -69,7 +69,11 @@ export AWKPATH=~/PROGS
 
 source ~/.bash-git-prompt/gitprompt.sh
 
-source ~/.git-completion.bash
+if [ -e ~/.git-completion.bash ]; then
+	source ~/.git-completion.bash
+else
+	echo '~/.git-completion.bash does not exist'
+fi
 
 source ~/.bashrc_local
 
