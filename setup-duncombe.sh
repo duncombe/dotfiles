@@ -34,6 +34,14 @@ done
 # something special for local only bash commands
 [ ! -e ~/.bashrc_local ] && cp duncombe/bashrc_local ~/.bashrc_local
 
+if [ ! -e ~/.git-completion.bash ]; then 
+	GIT_COMPLETIONFILE=`locate git-completion.bash`
+	if [ `echo $GIT_COMPLETIONFILE| wc -w` -eq 1 ] ; then 
+		ln -s $GIT_COMPLETIONFILE ~/.git-completion.bash
+	else
+		echo git completion file cannot be identified
+	fi
+fi
 
 ## not required
 # ln -sb ~/dotfiles/duncombe/fetchmailrc .fetchmailrc

@@ -69,6 +69,8 @@ export AWKPATH=~/PROGS
 
 source ~/.bash-git-prompt/gitprompt.sh
 
+source ~/.git-completion.bash
+
 source ~/.bashrc_local
 
 # vim:se nowrap tw=0 :
