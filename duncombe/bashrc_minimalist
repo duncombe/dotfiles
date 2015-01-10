@@ -1,0 +1,2 @@
+alias view="vim -R -u ~/.viewrc"
+
