@@ -8,6 +8,10 @@
 :   so /etc/vimrc
 : endif
 
+" however /etc/vimrc introduces a REALLY ANNOYING autocommand, so we remove it 
+
+:autocmd! redhat BufReadPost
+
 " :set ft=man nomod nolist
 :map q :q
 :map <SPACE> 
