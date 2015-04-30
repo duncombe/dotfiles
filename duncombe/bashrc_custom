@@ -64,7 +64,8 @@ export PATH=/usr/local/sbin:$PATH
 export AWKPATH=~/PROGS
 
 # export MAKEFILES=$HOME/Makefile
-export BSTINPUTS=$HOME/PROGS:/usr/share/texmf-texlive/bibtex/bst/natbib/
+export PATH=$HOME/PROGS/refsprogs:$PATH
+export BSTINPUTS=$HOME/PROGS/refsprogs:$(dirname `kpsewhich natbib.sty`)
 export BIBINPUTS=$HOME/DOCS/REFS
 
 # export PATH=/usr/local/heroku/bin:$PATH # Heroku: https://toolbelt.heroku.com/standalone
