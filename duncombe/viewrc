@@ -1,8 +1,8 @@
 " A vimrc for using vim as a viewer rather than editor. 
-" Make view behave more like less.
-" Since we are going to call this and only this rcfile from the command line, we
-" include the /etc/vimrc which seems to have some special magic that without
-" breaks the mapping to search for git merge markers.
+" Makes view behave more like less.
+" Since we are going to call this and only this rcfile from the command line,
+" we include the /etc/vimrc which seems to have some special magic which
+" without breaks the mapping to search for git merge markers.
 
 : if filereadable("/etc/vimrc")
 :   so /etc/vimrc
@@ -13,12 +13,20 @@
 :autocmd! redhat BufReadPost
 
 " :set ft=man nomod nolist
+" shortcut quit command
 :map q :q
+" space moves down a page
 :map <SPACE> 
+" b moves up a page
 :map b 
+" -S sets long lines
 :map -S :se nowrap!
+" < moves to the start of the file
+:map < 1G
+" > refresh the buffer and move to the end
+:map > :eG
 
-" :se nohls
+:se nohls
 
 :   syntax on
 "
