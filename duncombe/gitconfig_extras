@@ -15,6 +15,7 @@
     br = branch
     ci = commit
     st = status
+    ls = ls-files
     unstage = reset HEAD --
     last = log -1 HEAD
     ahead = "!git --no-pager log origin/master..HEAD --oneline"
