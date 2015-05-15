@@ -64,9 +64,12 @@ export PATH=/usr/local/sbin:$PATH
 export AWKPATH=~/PROGS
 
 # export MAKEFILES=$HOME/Makefile
-export PATH=$HOME/PROGS/refsprogs:$PATH
-export BSTINPUTS=$HOME/PROGS/refsprogs:$(dirname `kpsewhich natbib.sty`)
-export BIBINPUTS=$HOME/DOCS/REFS
+KPSEWHCIH=`which kpsewhich 2> /dev/null`
+if [ x${KPSEWHICH} != x ] ; then 
+	export PATH=$HOME/PROGS/refsprogs:$PATH
+	export BSTINPUTS=$HOME/PROGS/refsprogs:$(dirname `kpsewhich natbib.sty`)
+	export BIBINPUTS=$HOME/DOCS/REFS
+fi 
 
 # export PATH=/usr/local/heroku/bin:$PATH # Heroku: https://toolbelt.heroku.com/standalone
 
