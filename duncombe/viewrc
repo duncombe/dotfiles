@@ -13,14 +13,20 @@
 :autocmd! redhat BufReadPost
 
 " :set ft=man nomod nolist
-" shortcut quit command
+
+" set some less command line options
+" -S toggles long lines
+:map -S :se nowrap!
+" -i toggles ignore case
+:map -i :se ignorecase!
+
+" set some less commands
+" quit 
 :map q :q
 " space moves down a page
 :map <SPACE> 
 " b moves up a page
 :map b 
-" -S sets long lines
-:map -S :se nowrap!
 " < moves to the start of the file
 :map < 1G
 " > refresh the buffer and move to the end
