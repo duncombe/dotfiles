@@ -35,12 +35,13 @@ done
 [ ! -e ~/.bashrc_local ] && cp duncombe/bashrc_local ~/.bashrc_local
 
 if [ ! -e ~/.git-completion.bash ]; then 
-	GIT_COMPLETIONFILE=`locate git-completion.bash`
-	if [ `echo $GIT_COMPLETIONFILE| wc -w` -eq 1 ] ; then 
-		ln -s $GIT_COMPLETIONFILE ~/.git-completion.bash
-	else
-		echo git completion file cannot be identified
-	fi
+	wget -q -O- https://raw.github.com/git/git/master/contrib/completion/git-completion.bash > ~/.git-completion.bash
+# 	GIT_COMPLETIONFILE=`locate git-completion.bash`
+# 	if [ `echo $GIT_COMPLETIONFILE| wc -w` -eq 1 ] ; then 
+# 		ln -s $GIT_COMPLETIONFILE ~/.git-completion.bash
+# 	else
+# 		echo git completion file cannot be identified
+# 	fi
 fi
 
 ## not required
