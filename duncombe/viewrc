@@ -10,7 +10,9 @@
 
 " however /etc/vimrc introduces a REALLY ANNOYING autocommand, so we remove it 
 
-:autocmd! redhat BufReadPost
+:augroup redhat
+:	autocmd! redhat BufReadPost
+:augroup END
 
 " :set ft=man nomod nolist
 
