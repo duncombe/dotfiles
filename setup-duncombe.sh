@@ -14,22 +14,27 @@ INSTALLDIR=`/bin/pwd`
 # clone the bash-git-prompt repo. If when you are using the bash-git-prompt,
 # there are weird characters in the prompt, check the terminal encoding (menu
 # Terminal->Set Character Encoding) and change it to UTF-8.
-for f in bash-git-prompt duncombe/{bashrc,bash_logout,bash_profile,bashrc_custom,vimrc,inputrc,viewrc,bashrc_minimalist} ; do
+for f in bash-git-prompt duncombe/{bashrc,bash_logout,bash_profile,\
+	bashrc_custom,vimrc,inputrc,viewrc,bashrc_minimalist,gitconfig_extras} ; do
 	[ ! -e ~/.${f}\~ ] &&
-		ln -sb "$INSTALLDIR/${f}" ~/.$(basename ${f})  ||
+		ln -svb "$INSTALLDIR/${f}" ~/.$(basename ${f})  ||
 			echo  Backup file ~/.${f}\~ exists.
 done
 
 # for git config, should try this. It will work! :
-# ln -sb ~/dotfiles/duncombe/gitconfig_extras ~/.gitconfig_extras
-# if [ ! -e .gitconfig ]; then
-# 	cp -i "${INSTALLDIR}/duncombe/gitconfig" ~/.gitconfig
-# else
+##### above # ln -sb ~/dotfiles/duncombe/gitconfig_extras ~/.gitconfig_extras
+if [ ! -e ~/.gitconfig ]; then
+	cp -i "${INSTALLDIR}/duncombe/gitconfig" ~/.gitconfig
+else
 ## a job for sed or awk
-# 	if grep ".gitconfig_extras" ~/.gitconfig 
-# 		 "include .gitconfig_extras" 
-##  if it's not there add the line.
-# fi
+	if ! grep ".gitconfig_extras" ~/.gitconfig > /dev/null ; then
+		 awk '	BEGIN{printon=0}
+			/^\[/{printon=0}
+			/^\[include\]/{printon=1} 
+			printon{print}
+			' ${INSTALLDIR}/duncombe/gitconfig >>  ~/.gitconfig
+	fi
+fi
 
 # something special for local only bash commands
 [ ! -e ~/.bashrc_local ] && cp duncombe/bashrc_local ~/.bashrc_local
