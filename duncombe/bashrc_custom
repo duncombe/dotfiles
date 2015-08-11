@@ -48,7 +48,8 @@ alias newac='acroread -openInNewWindow'
 alias vi='vim'
 alias view="vim -R -u ~/.viewrc"
 alias vu='view'
-alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+# ubuntu does not have which with gnu extensions
+[ ! "`cat /etc/issue | grep -i ubuntu`" ] && alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 
 # Configure PATH for interactive shell 
 #  - These are line by line so that you can kill one without affecting the others.
@@ -65,6 +66,7 @@ export AWKPATH=~/PROGS
 
 # export MAKEFILES=$HOME/Makefile
 KPSEWHICH=`which kpsewhich 2> /dev/null`
+echo $KPSEWHICH
 if [ x${KPSEWHICH} != x ] ; then 
 	export PATH=$HOME/PROGS/refsprogs:$PATH
 	export BSTINPUTS=$HOME/PROGS/refsprogs:$(dirname `$KPSEWHICH natbib.sty`)
