@@ -3,4 +3,5 @@ export EDITOR="vim"
 alias vi='vim'
 alias view="vim -R -u ~/.viewrc"
 alias pd="dirs -v | tac"
+alias newac='acroread -openInNewWindow'
 
