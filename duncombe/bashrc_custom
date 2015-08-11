@@ -1,6 +1,6 @@
 # This script runs after .bashrc
 
-echo "Processing .bashrc_custom"
+# echo "Processing .bashrc_custom"
 
 # .bashrc is setting all these WRONG! Change to reasonable values:
 
