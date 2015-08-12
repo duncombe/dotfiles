@@ -66,7 +66,7 @@ export AWKPATH=~/PROGS
 
 # export MAKEFILES=$HOME/Makefile
 KPSEWHICH=`which kpsewhich 2> /dev/null`
-echo $KPSEWHICH
+# echo $KPSEWHICH
 if [ x${KPSEWHICH} != x ] ; then 
 	export PATH=$HOME/PROGS/refsprogs:$PATH
 	export BSTINPUTS=$HOME/PROGS/refsprogs:$(dirname `$KPSEWHICH natbib.sty`)
