@@ -14,6 +14,7 @@ INSTALLDIR=`/bin/pwd`
 # clone the bash-git-prompt repo. If when you are using the bash-git-prompt,
 # there are weird characters in the prompt, check the terminal encoding (menu
 # Terminal->Set Character Encoding) and change it to UTF-8.
+
 for f in bash-git-prompt duncombe/{bashrc,bash_logout,bash_profile,\
 	bashrc_custom,vimrc,inputrc,viewrc,bashrc_minimalist,gitconfig_extras} ; do
 	[ ! -e ~/.${f}\~ ] &&

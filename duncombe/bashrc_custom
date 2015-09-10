@@ -55,9 +55,13 @@ alias vu='view'
 #  - These are line by line so that you can kill one without affecting the others.
 #  - Lowest priority first, highest priority last.
 export PATH=$PATH
-# export PATH=$HOME/anaconda/bin:$PATH
+if [ -d $HOME/anaconda/bin ]; then 
+	export PATH=$HOME/anaconda/bin:$PATH
+fi
+if [ -d $HOME/PROGS ]; then 
+	export PATH=$HOME/PROGS:$PATH
+fi
 export PATH=$HOME/bin:$PATH
-export PATH=$HOME/PROGS:$PATH
 export PATH=/usr/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
@@ -68,9 +72,11 @@ export AWKPATH=~/PROGS
 KPSEWHICH=`which kpsewhich 2> /dev/null`
 # echo $KPSEWHICH
 if [ x${KPSEWHICH} != x ] ; then 
-	export PATH=$HOME/PROGS/refsprogs:$PATH
-	export BSTINPUTS=$HOME/PROGS/refsprogs:$(dirname `$KPSEWHICH natbib.sty`)
-	export BIBINPUTS=$HOME/DOCS/REFS
+	if [ -d $HOME/PROGS/refsprogs ]; then
+		export PATH=$HOME/PROGS/refsprogs:$PATH
+		export BSTINPUTS=$HOME/PROGS/refsprogs:$(dirname `$KPSEWHICH natbib.sty`)
+		export BIBINPUTS=$HOME/DOCS/REFS
+	fi
 fi 
 
 # export PATH=/usr/local/heroku/bin:$PATH # Heroku: https://toolbelt.heroku.com/standalone
