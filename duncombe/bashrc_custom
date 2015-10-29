@@ -74,7 +74,11 @@ KPSEWHICH=`which kpsewhich 2> /dev/null`
 if [ x${KPSEWHICH} != x ] ; then 
 	if [ -d $HOME/PROGS/refsprogs ]; then
 		export PATH=$HOME/PROGS/refsprogs:$PATH
-		export BSTINPUTS=$HOME/PROGS/refsprogs:$(dirname `$KPSEWHICH natbib.sty`)
+		if [ x`$KPSEWHICH natbib.sty` = x ]; then 
+			export BSTINPUTS=$HOME/PROGS/refsprogs
+		else
+			export BSTINPUTS=$HOME/PROGS/refsprogs:$(dirname `$KPSEWHICH natbib.sty`)
+		fi
 		export BIBINPUTS=$HOME/DOCS/REFS
 	fi
 fi 
