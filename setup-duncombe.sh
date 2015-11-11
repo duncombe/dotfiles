@@ -16,7 +16,7 @@ INSTALLDIR=`/bin/pwd`
 # Terminal->Set Character Encoding) and change it to UTF-8.
 
 for f in bash-git-prompt duncombe/{bashrc,bash_logout,bash_profile,\
-	bashrc_custom,vimrc,inputrc,viewrc,bashrc_minimalist,gitconfig_extras} ; do
+bashrc_custom,vimrc,inputrc,viewrc,bashrc_minimalist,gitconfig_extras} ; do
 	[ ! -e ~/.${f}\~ ] &&
 		ln -svb "$INSTALLDIR/${f}" ~/.$(basename ${f})  ||
 			echo  Backup file ~/.${f}\~ exists.
