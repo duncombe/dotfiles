@@ -7,7 +7,7 @@ INSTALLDIR=`/bin/pwd`
 	echo exit 1
 	}
 
-# make space to include the bash-git-prompt as a submodule and do this all in
+# Make space to include the bash-git-prompt as a submodule and do this all in
 # one loop. Make backups. If a backup already exists, skip the copy.
 # For the bash-git prompt, it is a submodule. How do you fetch out also the
 # submodules when you clone the repo??  If the bash-git-prompt dir is empty,
@@ -15,8 +15,19 @@ INSTALLDIR=`/bin/pwd`
 # there are weird characters in the prompt, check the terminal encoding (menu
 # Terminal->Set Character Encoding) and change it to UTF-8.
 
-for f in bash-git-prompt duncombe/{bashrc,bash_logout,bash_profile,\
-bashrc_custom,vimrc,inputrc,viewrc,bashrc_minimalist,gitconfig_extras} ; do
+for f in bash-git-prompt duncombe/{\
+bash_logout,\
+bash_profile,\
+bashrc,\
+bashrc_custom,\
+bashrc_minimalist,\
+gitconfig_extras,\
+inputrc,\
+muttmailcap,\
+muttrc,\
+viewrc,\
+vimrc\
+} ; do
 	[ ! -e ~/.${f}\~ ] &&
 		ln -svb "$INSTALLDIR/${f}" ~/.$(basename ${f})  ||
 			echo  Backup file ~/.${f}\~ exists.
@@ -50,7 +61,7 @@ if [ ! -e ~/.git-completion.bash ]; then
 # 	fi
 fi
 
-## not required
+## these may be installation specific. Check above automated stuff.
 # ln -sb ~/dotfiles/duncombe/fetchmailrc .fetchmailrc
 # ln -sb ~/dotfiles/duncombe/muttrc .muttrc
 # ln -sb ~/dotfiles/duncombe/procmailrc .procmailrc
