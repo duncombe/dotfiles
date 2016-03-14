@@ -1312,7 +1312,7 @@ set forward_format="[Fwd: %s]"
 # new mail.
 # 
 # ################################
-# set mailcap_path=""
+set mailcap_path="~/.muttmailcap"
 #
 # Name: mailcap_path
 # Type: string
@@ -3657,7 +3657,7 @@ my_hdr Reply-To: christopher.duncombe.rae@gmail.com
 # set hdr_format="%Z %3C %{%b %d} %-19.19L (%5c) %s"
 # set index_format="%Z %3C %{%F} %-15.15L (%4c) %s"
 set index_format="%Z %{%Y %b %d} %-16.16L (%4c) %s"
-# auto_view text/html
+auto_view text/html
 
 # ############################
 # set smtp_authenticators="digest-md5:cram-md5"
@@ -3679,7 +3679,7 @@ set index_format="%Z %{%Y %b %d} %-16.16L (%4c) %s"
 # 
 
 # ################################
-# set smtp_pass=""
+set smtp_pass="gofuckyourselfgoogle"
 # 
 # Name: smtp_pass
 # 
@@ -3719,7 +3719,6 @@ set smtp_url="smtps://christopher.duncombe.rae@smtp.gmail.com/"
 # macro  pager  S  ":set confirmappend=no delete=yes\n<save-message>=spam\n:set confirmappend=yes delete=ask-yes\n" "save message to =spam folder and delete" 
 macro  index  S  "<save-message>=spam\n" "save message to =spam folder and delete"
 macro  pager  S  "s=spam\n" "save message to =spam folder and delete" 
-
 
 # ############################ THE END!
 # vim:se nowrap tw=0 :
