@@ -56,10 +56,11 @@ alias vu='view'
 #  - Lowest priority first, highest priority last.
 export PATH=$PATH
 if [ -d $HOME/anaconda/bin ]; then 
-	export PATH=$HOME/anaconda/bin:$PATH
-elif [ -d $HOME/anaconda2/bin ]; then  
-	export PATH=$HOME/anaconda2/bin:$PATH 
+	export PATH="$HOME/anaconda/bin:$PATH"
+elif [ -d $HOME/anaconda2/bin ]; then 
+	export PATH="$HOME/anaconda2/bin:$PATH"
 fi
+
 if [ -d $HOME/PROGS ]; then 
 	export PATH=$HOME/PROGS:$PATH
 fi
@@ -67,8 +68,14 @@ export PATH=$HOME/bin:$PATH
 export PATH=/usr/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
+if [ -d /usr/share/fslint/fslint ]; then
+	PATH=/usr/share/fslint/fslint:$PATH
+fi
+
 
 export AWKPATH=~/PROGS
+
+
 
 # export MAKEFILES=$HOME/Makefile
 KPSEWHICH=`which kpsewhich 2> /dev/null`
