@@ -57,6 +57,8 @@ alias vu='view'
 export PATH=$PATH
 if [ -d $HOME/anaconda/bin ]; then 
 	export PATH=$HOME/anaconda/bin:$PATH
+elif [ -d $HOME/anaconda2/bin ]; then  
+	export PATH=$HOME/anaconda2/bin:$PATH 
 fi
 if [ -d $HOME/PROGS ]; then 
 	export PATH=$HOME/PROGS:$PATH
