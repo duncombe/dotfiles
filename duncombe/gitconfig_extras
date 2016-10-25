@@ -35,5 +35,7 @@
         echo ------- ; } ; } ; _"
     mystatus = ! git mystat
     acp = "! git add -A -v ; gitcommit; git push"
+    info = "! git rev-parse --show-toplevel"
+
 # vi:se nowrap tw=0 :
 
