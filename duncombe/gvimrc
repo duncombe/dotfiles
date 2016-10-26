@@ -1,0 +1,7 @@
+:se wrap tw=0
+" 
+" Set a key map to make a link point to a label in ExternalContacts file
+:vmap =ec :s/\%V\([[:alpha:]]\+\) \?\([[:alpha:]]\+\)/ExternalContacts#\1\2][\1 \2/
+
+
+" vim: se nowrap tw=0 :

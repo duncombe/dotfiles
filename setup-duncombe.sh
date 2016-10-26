@@ -22,6 +22,7 @@ bashrc,\
 bashrc_custom,\
 bashrc_minimalist,\
 gitconfig_extras,\
+gvimrc\
 inputrc,\
 muttmailcap,\
 muttrc,\
