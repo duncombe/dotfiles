@@ -22,13 +22,14 @@ bashrc,\
 bashrc_custom,\
 bashrc_minimalist,\
 gitconfig_extras,\
-gvimrc\
+gvimrc,\
 inputrc,\
 muttmailcap,\
 muttrc,\
 viewrc,\
 vimrc\
 } ; do
+	# if no backup file exists, make a link. if a backup file exists, complain.
 	[ ! -e ~/.${f}\~ ] &&
 		ln -svb "$INSTALLDIR/${f}" ~/.$(basename ${f})  ||
 			echo  Backup file ~/.${f}\~ exists.
