@@ -1,7 +1,9 @@
 unset VISUAL
 export EDITOR="vim"
-alias vi='vim'
-alias view="vim -R -u ~/.viewrc"
+alias vi='/usr/bin/vim -i NONE'
+alias vim='/usr/bin/vim -i NONE'
+alias gvim='/usr/bin/gvim -i NONE'
+alias view="/usr/bin/vim -i NONE -R -u ~/.viewrc"
 alias pd="dirs -v | tac"
 alias newac='acroread -openInNewWindow'
 
