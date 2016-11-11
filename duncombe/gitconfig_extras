@@ -35,7 +35,11 @@
         echo ------- ; } ; } ; _"
     mystatus = ! git mystat
     acp = "! git add -A -v ; gitcommit; git push"
-    info = "! git rev-parse --show-toplevel"
+    info = "!_() {\
+	echo -n \"Repo root:  \" ; \
+	git rev-parse --show-toplevel; \
+	echo -n \"Version:  \" ; \
+	git describe --abbrev=4 --tags --dirty ; } ; _"
 
 # vi:se nowrap tw=0 :
 
