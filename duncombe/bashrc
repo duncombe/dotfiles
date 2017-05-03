@@ -145,7 +145,7 @@ if [ "$PS1" ]; then
     # define a bash function which escapes the string before writing it; if you
     # have a fix for that which doesn't slow the command down, please submit
     # a patch or pull request.
-    PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ; }"'echo -e $$\\t$USER\\t$HOSTNAME\\tscreen $WINDOW\\t`date +%D%t%T%t%Y%t%s`\\t$PWD"$(history 1)" >> ~/.bash_eternal_history'
+    PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ; }"'echo -e $$\\t$USER\\t$HOSTNAME\\tscreen $WINDOW\\t`date +%D%t%T%t%Y%t%s`\\t$PWD"\ $(history 1)" >> ~/.bash_eternal_history'
 
     # Turn on checkwinsize
     shopt -s checkwinsize
@@ -243,3 +243,4 @@ source ~/.bashrc_custom
 # \n\[\033[1;34m\]\u@comet\[\033[0m\]:$(/bin/pwd)\n$(date '+%Y/%m/%d %T')
 # \$
 
+# vi: se nowrap tw=0 :
