@@ -35,11 +35,13 @@
         echo ------- ; } ; } ; _"
     mystatus = ! git mystat
     acp = "! git add -A -v ; gitcommit; git push"
-    info = "!_() {\
+    # note that the fancy _(){...;};_ business is only  required if you need to
+    # pass parameters to the alias.
+    info = "!\
 	echo -n \"Repo root:  \" ; \
 	git rev-parse --show-toplevel; \
 	echo -n \"Version:  \" ; \
-	git describe --abbrev=4 --tags --dirty ; } ; _"
+	git describe --abbrev=4 --tags --dirty 2> /dev/null || { echo -n no tag, commit is\\ ; git describe --always ; }"
 
 # vi:se nowrap tw=0 :
 
