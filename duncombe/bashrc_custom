@@ -36,6 +36,7 @@ alias pd="dirs -v | tac"
 alias ad='cd $(/bin/pwd)'
 alias lsd='ls -ld .* * | grep ^d'
 export LESS="-j3 -a -M -Q -i"
+# export LESSCHARSET="utf-8"
 alias rehash="hash -r" 
 alias ac='acroread'
 alias chrome='google-chrome -new-window'
