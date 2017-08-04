@@ -42,6 +42,7 @@
 	git rev-parse --show-toplevel; \
 	echo -n \"Version:  \" ; \
 	git describe --abbrev=4 --tags --dirty 2> /dev/null || { echo -n no tag, commit is\\ ; git describe --always ; }"
+    root = rev-parse --show-toplevel
 
 # vi:se nowrap tw=0 :
 
